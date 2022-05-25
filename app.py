@@ -1,13 +1,12 @@
-from distutils.log import debug
 import numpy as np
 import pickle
 from flask import Flask, request, render_template
 
 # Load ML model
-model = pickle.load(open('Real_Estate_Price_Prediction_Project.pkl', 'rb')) 
+model = pickle.load(open('Real_Estate_Price_Prediction_Project.pickle', 'rb')) 
 
 # Create application
-app = Flask(__name__,template_folder='templates')
+app = Flask(_name_,template_folder='templates')
 
 # Bind home function to URL
 @app.route('/')
@@ -30,11 +29,11 @@ def predict():
     # Check the output values and retrive the result with html tag based on the value
     if output == 1:
         return render_template('index.html', 
-                               result = output )
+                               result ="" )
     else:
         return render_template('index.html', 
-                               result = output)
+                               result = "")
 
-if __name__ == '__main__':
+if _name_ == '_main_':
 #Run the application
-    app.run(debug=True)
+    app.run()
